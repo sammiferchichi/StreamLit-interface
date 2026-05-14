@@ -79,102 +79,11 @@ with st.spinner("Chargement du modèle..."):
     le_map = get_label_encoder()
     default_categorie = get_default_categorie()
 
-# ---- Thème sombre élégant ----
-st.markdown("""
-<style>
-    .stApp {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    }
-    .stApp > header {
-        background-color: #0f3460;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        color: #e8c547 !important;
-    }
-    .stButton > button {
-        background: linear-gradient(90deg, #e8c547, #d4a843) !important;
-        color: #1a1a2e !important;
-        border: none !important;
-        font-weight: bold !important;
-        box-shadow: 0 2px 8px rgba(232, 197, 71, 0.3);
-    }
-    .stButton > button:hover {
-        background: linear-gradient(90deg, #f5d65a, #e8c547) !important;
-        color: #1a1a2e !important;
-        box-shadow: 0 4px 16px rgba(232, 197, 71, 0.5);
-    }
-    .stMetric {
-        background: rgba(255, 255, 255, 0.06);
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid rgba(232, 197, 71, 0.2);
-        backdrop-filter: blur(4px);
-    }
-    .stSelectbox label, .stNumberInput label, .stSelectbox div, .stNumberInput div {
-        color: #e0e0e0 !important;
-    }
-    .stSelectbox > div > div, .stNumberInput > div > div {
-        background-color: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        color: #ffffff !important;
-        border-radius: 6px !important;
-    }
-    div[data-testid="stForm"] {
-        background: rgba(255, 255, 255, 0.04);
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(4px);
-    }
-    .stDataFrame {
-        border: 1px solid rgba(232, 197, 71, 0.2);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.04);
-    }
-    .stDataFrame th {
-        background-color: #0f3460 !important;
-        color: #e8c547 !important;
-    }
-    .stDataFrame td {
-        color: #e0e0e0 !important;
-    }
-    hr {
-        border-color: rgba(232, 197, 71, 0.2) !important;
-    }
-    .stProgress > div > div > div {
-        background: linear-gradient(90deg, #e8c547, #f5d65a) !important;
-    }
-    .stProgress > div {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-    }
-    div[data-testid="stMetricValue"] {
-        color: #e8c547 !important;
-        font-size: 1.5rem !important;
-    }
-    div[data-testid="stMetricLabel"] {
-        color: #aaa !important;
-    }
-    p, li, span, .stMarkdown {
-        color: #d0d0d0 !important;
-    }
-    .stSuccess {
-        background-color: rgba(46, 204, 113, 0.15) !important;
-        border: 1px solid rgba(46, 204, 113, 0.3) !important;
-    }
-    .stWarning {
-        background-color: rgba(241, 196, 15, 0.15) !important;
-        border: 1px solid rgba(241, 196, 15, 0.3) !important;
-    }
-    .stError {
-        background-color: rgba(231, 76, 60, 0.15) !important;
-        border: 1px solid rgba(231, 76, 60, 0.3) !important;
-    }
-</style>
-""", unsafe_allow_html=True)
+
 
 # ---- Titre ----
 st.title("Prédiction du Churn Client — ATB")
-st.markdown('<p style="color:#aaa; font-size:1rem;">Testez le modèle XGBoost pour estimer la probabilité de churn d\'un client</p>', unsafe_allow_html=True)
+st.markdown("Testez le modèle XGBoost pour estimer la probabilité de churn d'un client")
 
 st.markdown("---")
 
