@@ -203,11 +203,11 @@ if st.session_state.submitted:
 
     # 8. Niveau de risque
     if proba < 0.30:
-        risque = "Faible"
+        risque = "🟢 Faible"
     elif proba < 0.60:
-        risque = "Moyen"
+        risque = "🟡 Moyen"
     else:
-        risque = "Élevé"
+        risque = "🔴 Élevé"
 
     # ---- Affichage des résultats ----
     st.markdown("---")
@@ -238,12 +238,12 @@ if st.session_state.submitted:
     st.progress(proba, text=f"Risque de churn : {proba:.1%}")
 
     # Message contextualisé
-    if risque == "Faible":
-        st.success("Client stable — aucune action urgente requise.")
-    elif risque == "Moyen":
-        st.warning("Surveillance rapprochée recommandée.")
+    if proba < 0.30:
+        st.success("🟢 Client stable — aucune action urgente requise.")
+    elif proba < 0.60:
+        st.warning("🟡 Surveillance rapprochée recommandée.")
     else:
-        st.error("Action de rétention immédiate requise !")
+        st.error("🔴 Action de rétention immédiate requise !")
 
     # Facteurs de risque
     st.markdown("---")
