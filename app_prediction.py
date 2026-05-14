@@ -84,6 +84,11 @@ with st.spinner("Chargement du modèle..."):
 
 
 # ---- Logo + Titre ----
+st.markdown("""
+<style>
+    div[data-testid="column"]:first-of-type img { margin-top: 1.2rem; }
+</style>
+""", unsafe_allow_html=True)
 col_logo, col_titre = st.columns([2, 5])
 with col_logo:
     st.image("logo/logo.png", width=250)
