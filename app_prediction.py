@@ -91,7 +91,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 col_logo, col_titre = st.columns([2, 5])
 with col_logo:
-    st.image("logo/logo.png", width=250)
+    st.image("logo/logo1.png", width=250)
 with col_titre:
     st.title("Prédiction du Churn Client — ATB")
     st.markdown("Testez le modèle XGBoost pour estimer la probabilité de churn d'un client")
