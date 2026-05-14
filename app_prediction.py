@@ -83,14 +83,18 @@ with st.spinner("Chargement du modèle..."):
 
 st.markdown("""
 <style>
-    .block-container { padding-top: 1rem; }
+    .block-container { padding-top: 0rem !important; }
+    .stApp > header { display: none; }
+    #MainMenu { visibility: hidden; }
+    footer { visibility: hidden; }
+    div[data-testid="column"]:first-of-type img { margin-top: -10px; }
 </style>
 """, unsafe_allow_html=True)
 
 # ---- Logo + Titre ----
 col_logo, col_titre = st.columns([2, 5])
 with col_logo:
-    st.image("logo/logo.png", width=200)
+    st.image("logo/logo.png", width=250)
 with col_titre:
     st.title("Prédiction du Churn Client — ATB")
     st.markdown("Testez le modèle XGBoost pour estimer la probabilité de churn d'un client")
