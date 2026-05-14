@@ -83,11 +83,9 @@ with st.spinner("Chargement du modèle..."):
 
 st.markdown("""
 <style>
-    .block-container { padding-top: 0rem !important; }
-    .stApp > header { display: none; }
+    .block-container { padding-top: 0.5rem; }
     #MainMenu { visibility: hidden; }
     footer { visibility: hidden; }
-    div[data-testid="column"]:first-of-type img { margin-top: -10px; }
 </style>
 """, unsafe_allow_html=True)
 
