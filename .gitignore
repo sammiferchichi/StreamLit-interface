@@ -1,0 +1,35 @@
+# Large data files (not needed for prediction app)
+Donnes/DATA.csv
+Donnes/CLEAN-DATA.csv
+Donnes/CLEAN-JM.csv
+Donnes/JM.csv
+Donnes/df_merged.csv
+Donnes/CLASSE.xlsx
+
+# Large prediction outputs
+df_merged_with_predictions.csv
+df_merged_with_predictions_XAI.csv
+
+# Notebooks (not needed for Streamlit)
+*.ipynb
+
+# SQL
+04-Structure.sql
+
+# Power BI
+*.pbix
+Frames power bi/
+Power BI/
+Donnees pour power bi/
+
+# IDE
+.idea/
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Streamlit secrets
+.streamlit/
