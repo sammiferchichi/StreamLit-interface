@@ -81,13 +81,7 @@ with st.spinner("Chargement du modèle..."):
 
 
 
-st.markdown("""
-<style>
-    .block-container { padding-top: 0.5rem; }
-    #MainMenu { visibility: hidden; }
-    footer { visibility: hidden; }
-</style>
-""", unsafe_allow_html=True)
+
 
 # ---- Logo + Titre ----
 col_logo, col_titre = st.columns([2, 5])
