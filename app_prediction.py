@@ -79,69 +79,102 @@ with st.spinner("Chargement du modèle..."):
     le_map = get_label_encoder()
     default_categorie = get_default_categorie()
 
-# ---- Thème ATB ----
+# ---- Thème sombre élégant ----
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     }
     .stApp > header {
-        background-color: #6B2328;
+        background-color: #0f3460;
     }
-    h1, h2, h3 {
-        color: #6B2328 !important;
+    h1, h2, h3, h4, h5, h6 {
+        color: #e8c547 !important;
     }
     .stButton > button {
-        background-color: #6B2328 !important;
-        color: white !important;
+        background: linear-gradient(90deg, #e8c547, #d4a843) !important;
+        color: #1a1a2e !important;
         border: none !important;
         font-weight: bold !important;
+        box-shadow: 0 2px 8px rgba(232, 197, 71, 0.3);
     }
     .stButton > button:hover {
-        background-color: #8a2e35 !important;
-        color: white !important;
+        background: linear-gradient(90deg, #f5d65a, #e8c547) !important;
+        color: #1a1a2e !important;
+        box-shadow: 0 4px 16px rgba(232, 197, 71, 0.5);
     }
     .stMetric {
-        background-color: white;
+        background: rgba(255, 255, 255, 0.06);
         padding: 15px;
         border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(107, 35, 40, 0.15);
-        border-left: 4px solid #6B2328;
+        border: 1px solid rgba(232, 197, 71, 0.2);
+        backdrop-filter: blur(4px);
     }
-    .stSelectbox label, .stNumberInput label {
-        color: #6B2328 !important;
-        font-weight: 500 !important;
+    .stSelectbox label, .stNumberInput label, .stSelectbox div, .stNumberInput div {
+        color: #e0e0e0 !important;
+    }
+    .stSelectbox > div > div, .stNumberInput > div > div {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: #ffffff !important;
+        border-radius: 6px !important;
     }
     div[data-testid="stForm"] {
-        background-color: white;
+        background: rgba(255, 255, 255, 0.04);
         padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(4px);
     }
     .stDataFrame {
-        border: 1px solid #e0e0e0;
+        border: 1px solid rgba(232, 197, 71, 0.2);
         border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+    }
+    .stDataFrame th {
+        background-color: #0f3460 !important;
+        color: #e8c547 !important;
+    }
+    .stDataFrame td {
+        color: #e0e0e0 !important;
     }
     hr {
-        border-color: #6B2328 !important;
-        opacity: 0.3;
+        border-color: rgba(232, 197, 71, 0.2) !important;
     }
     .stProgress > div > div > div {
-        background-color: #6B2328 !important;
+        background: linear-gradient(90deg, #e8c547, #f5d65a) !important;
+    }
+    .stProgress > div {
+        background-color: rgba(255, 255, 255, 0.1) !important;
     }
     div[data-testid="stMetricValue"] {
-        color: #6B2328 !important;
+        color: #e8c547 !important;
         font-size: 1.5rem !important;
     }
     div[data-testid="stMetricLabel"] {
-        color: #333 !important;
+        color: #aaa !important;
+    }
+    p, li, span, .stMarkdown {
+        color: #d0d0d0 !important;
+    }
+    .stSuccess {
+        background-color: rgba(46, 204, 113, 0.15) !important;
+        border: 1px solid rgba(46, 204, 113, 0.3) !important;
+    }
+    .stWarning {
+        background-color: rgba(241, 196, 15, 0.15) !important;
+        border: 1px solid rgba(241, 196, 15, 0.3) !important;
+    }
+    .stError {
+        background-color: rgba(231, 76, 60, 0.15) !important;
+        border: 1px solid rgba(231, 76, 60, 0.3) !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 # ---- Titre ----
-st.title("🏦 Prédiction du Churn Client — ATB")
-st.markdown("Testez le modèle XGBoost pour estimer la probabilité de churn d'un client.")
+st.title("Prédiction du Churn Client — ATB")
+st.markdown('<p style="color:#aaa; font-size:1rem;">Testez le modèle XGBoost pour estimer la probabilité de churn d\'un client</p>', unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -215,7 +248,7 @@ with col2:
     )
 
 st.markdown("---")
-st.button(" Prédire le risque de churn", on_click=submit, use_container_width=True)
+st.button("Prédire le risque de churn", on_click=submit, use_container_width=True)
 
 # ---- Prédiction ----
 if st.session_state.submitted:
@@ -262,17 +295,14 @@ if st.session_state.submitted:
     # 8. Niveau de risque
     if proba < 0.30:
         risque = "Faible"
-        couleur = "🟢"
     elif proba < 0.60:
         risque = "Moyen"
-        couleur = "🟡"
     else:
         risque = "Élevé"
-        couleur = "🔴"
 
     # ---- Affichage des résultats ----
     st.markdown("---")
-    st.subheader(" Résultat de la prédiction")
+    st.subheader("Résultat de la prédiction")
 
     col_res1, col_res2, col_res3 = st.columns(3)
 
@@ -292,7 +322,7 @@ if st.session_state.submitted:
     with col_res3:
         st.metric(
             label="Niveau de risque",
-            value=f"{couleur} {risque}"
+            value=risque
         )
 
     # Barre de progression
@@ -300,15 +330,15 @@ if st.session_state.submitted:
 
     # Message contextualisé
     if risque == "Faible":
-        st.success("✅ Client stable — aucune action urgente requise.")
+        st.success("Client stable — aucune action urgente requise.")
     elif risque == "Moyen":
-        st.warning("⚠️ Surveillance rapprochée recommandée.")
+        st.warning("Surveillance rapprochée recommandée.")
     else:
-        st.error("🚨 Action de rétention immédiate requise !")
+        st.error("Action de rétention immédiate requise !")
 
     # Facteurs de risque
     st.markdown("---")
-    st.subheader("🔍 Caractéristiques saisies")
+    st.subheader("Caractéristiques saisies")
 
     aff_groupe = "Aucun" if est_sans_produit else groupe_produit
     aff_famille = "N/A" if est_sans_produit else famille_produit
