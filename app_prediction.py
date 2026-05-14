@@ -81,6 +81,12 @@ with st.spinner("Chargement du modèle..."):
 
 
 
+st.markdown("""
+<style>
+    .block-container { padding-top: 1rem; }
+</style>
+""", unsafe_allow_html=True)
+
 # ---- Logo + Titre ----
 col_logo, col_titre = st.columns([2, 5])
 with col_logo:
