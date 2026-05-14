@@ -82,9 +82,9 @@ with st.spinner("Chargement du modèle..."):
 
 
 # ---- Logo + Titre ----
-col_logo, col_titre = st.columns([1, 5])
+col_logo, col_titre = st.columns([2, 5])
 with col_logo:
-    st.image("logo/logo.png", width=80)
+    st.image("logo/logo.png", width=200)
 with col_titre:
     st.title("Prédiction du Churn Client — ATB")
     st.markdown("Testez le modèle XGBoost pour estimer la probabilité de churn d'un client")
