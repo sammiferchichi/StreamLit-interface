@@ -18,7 +18,7 @@ def submit():
 # ---- Configuration ----
 st.set_page_config(
     page_title="Prédiction Churn - ATB",
-    layout="centered"
+    layout="wide"
 )
 
 # ---- Chemin des fichiers ----
